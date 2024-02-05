@@ -4,3 +4,4 @@ pandas
 flask 
 tabulate 
 python-dotenv
+gunicorn

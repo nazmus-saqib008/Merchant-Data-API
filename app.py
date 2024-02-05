@@ -20,13 +20,23 @@ df.rename(columns={'category':'ownership_type','registered_address':'address','u
 def get_answer():
     try:
         data = request.get_json()
-        prompt = data.get('prompt', '').lower()
+        reqPrompt = data.get('prompt', '').lower()
+
+        finalPrompt = {
+            "input": reqPrompt + ". 1) ignoring case. 2) use includes and not equal for string type datas.",
+            "tool_names":["pandas"],
+            "tools":{
+                "pandas":{
+                    "df": df.to_dict()
+                }
+            }
+        }
         
         # Create agent with pandas dataframe
         agent = create_pandas_dataframe_agent(llm, df, verbose=True)
         
         # Invoke the agent with the provided prompt
-        answer = agent.invoke(prompt + ". 1) ignoring case. 2) use includes and not equal for string type datas.")
+        answer = agent.invoke(finalPrompt)
         
         return jsonify({"answer": answer.get("output")})
     

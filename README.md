@@ -7,7 +7,7 @@ To set up the project, follow these steps:
 Install required Python packages using pip:
 
 ```bash
-pip install langchain_experimental langchain_openai pandas flask tabulate python-dotenv
+pip install langchain_experimental==0.0.49 langchain_openai pandas flask tabulate python-dotenv
 ```
 Create a .env file in the project root directory and set your OpenAI API key:
 
@@ -19,12 +19,11 @@ Set up a virtual environment named api-venv:
 ```bash
 python -m venv api-venv
 ```
-Disable certain lines in 
-```bash 
-api-venv\Lib\site-packages\langchain\agents\react\agent.py
-```
- for experimentation by commenting out lines 93 to 97.
+Activate venv:
 
+```bash
+api-venv\Scripts\Activate.ps1
+```
 
 ### Run the API using the following command:
 

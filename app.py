@@ -27,7 +27,7 @@ def get_answer():
         agent = create_pandas_dataframe_agent(llm, df, verbose=True)
         
         # Invoke the agent with the provided prompt
-        answer = agent.invoke(reqPrompt + ". 1) ignoring case. 2) use includes and not equal for string type datas.")
+        answer = agent.invoke(reqPrompt + ". 1) ignoring case. 2) use contains and not equal for string type datas.")
         
         return jsonify({"answer": answer.get("output")})
     

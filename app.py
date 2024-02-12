@@ -15,7 +15,7 @@ filePath = "data_new.csv"
 llm = OpenAI(temperature=0.2, model="gpt-3.5-turbo-instruct-0914")
 
 df = pd.read_csv(filePath).fillna(0)
-df.rename(columns={'category':'ownership_type','registered_address':'address','upper':'turnover_range_upper_boundary','lower':'turnover_range_lower_boundary'}, inplace=True)
+df.rename(columns={'category':'ownership_type','nature_of_business':'business_sector','registered_address':'address','upper':'turnover_range_upper_boundary','lower':'turnover_range_lower_boundary'}, inplace=True)
 
 @app.route('/get_answer', methods=['POST'])
 def get_answer():

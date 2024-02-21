@@ -1,4 +1,5 @@
 langchain_experimental==0.0.49
+langchain_google_genai
 langchain_openai 
 pandas 
 flask 
